@@ -1,0 +1,10 @@
+package testPkg;
+
+public class BasicsJava {
+
+	public static void main(String[] args) {
+		System.out.println("this is sample program");
+
+	}
+
+}
