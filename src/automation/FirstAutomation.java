@@ -1,9 +1,9 @@
 package automation;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.Test;
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class FirstAutomation 
 {
@@ -11,8 +11,15 @@ public class FirstAutomation
 	@Test
 	public void fbloginFunctionality()
 	{
-		WebDriverManager.chromedriver().setup()
-		WebDriver driver = new ChromeDriver();  //launch the chrome browser
+		System.setProperty("webdriver.edge.driver", "./DriverSetup/msedgedriver.exe");
+		
+		//WebDriverManager.chromedriver().setup()
+		WebDriver driver = new EdgeDriver();  //launch the edge browser
+		driver.get("https://www.facebook.com/");
+		
+		driver.findElement(By.id("email")).sendKeys("modisantosh@gmail.com");
+		driver.findElement(By.name("pass")).sendKeys("pass1234");
+		driver.findElement(By.cssSelector("[type='submit']")).click();
 	}
 	
 }
